@@ -36,18 +36,21 @@ const appendText = (label = "Default") => {
     elem.addEventListener('click', () => {
         if (count < 1) {
             count++
-            remelem.setAttribute('class', 'btn btn-danger delete-btn d-block')
+            remelem.setAttribute('class', 'btn btn-danger delete-btn d-block ms-2 mt-2')
         }
     })
-    document.querySelector('#display').append(elem)
-    document.querySelector('#display').append(remelem)
+    let container = document.createElement('div');
+    container.setAttribute('class', 'd-flex');
+    container.append(elem, remelem);
+
+    document.querySelector('#display').append(container)
 }
 const appendTitle = (label = "Default") => {
     let count = 0
     let container = document.createElement('div');
     let elem = document.createElement('h3')
 
-    elem.setAttribute('class', 'text d-flex justify-content-center')
+    elem.setAttribute('class', 'text d-flex')
     elem.textContent = label
 
     let remelem = document.createElement('button')
@@ -61,15 +64,14 @@ const appendTitle = (label = "Default") => {
     elem.addEventListener('click', () => {
         if (count < 1) {
             count++
-            remelem.setAttribute('class', 'btn btn-danger delete-btn d-block')
+            remelem.setAttribute('class', 'btn btn-danger delete-btn d-block ms-3')
         }
     })
 
-    container.setAttribute('class', 'd-flex justify-content-end');
+    container.setAttribute('class', 'd-flex justify-content-center');
     container.append(elem, remelem);
 
     document.querySelector('#display').append(container)
-
 
 }
 
@@ -91,13 +93,16 @@ const appendButton = (label = "Default") => {
     elem.addEventListener('click', () => {
         if (count < 1) {
             count++
-            remelem.setAttribute('class', 'btn btn-danger delete-btn d-block')
+            remelem.setAttribute('class', 'btn btn-danger delete-btn d-block ms-2 mt-2')
         }
         
     })
 
-    document.querySelector('#display').append(elem)
-    document.querySelector('#display').append(remelem)
+    let container = document.createElement('div');
+    container.setAttribute('class', 'd-flex');
+    container.append(elem, remelem);
+
+    document.querySelector('#display').append(container)
 
 }   
 
@@ -141,22 +146,25 @@ const appendCheckbox = (label = "Default") => {
 
     let elem = document.createElement('input')
     elem.setAttribute('type', 'search')
-    elem.setAttribute('class', 'form-control mt-2 d-flex col-5')
+    elem.setAttribute('class', 'form-control mt-2')
     elem.addEventListener('click', () => {
         if (count < 1) {
             count++
-            remelem.setAttribute('class', 'btn btn-danger delete-btn d-flex justify-content-end d-block')
+            remelem.setAttribute('class', 'btn btn-danger delete-btn d-block mt-2 ms-2')
         }
     })
 
     let remelem = document.createElement('button')
-    remelem.setAttribute('class', 'btn btn-danger delete-btn d-flex justify-content-end d-none')
+    remelem.setAttribute('class', 'btn btn-danger delete-btn d-none')
     remelem.textContent = 'Delete'
     remelem.addEventListener('click', () => {
         elem.remove()
         remelem.remove()
     })
 
-    document.querySelector('#display').append(elem)
-    document.querySelector('#display').append(remelem)
+    let container = document.createElement('div');
+    container.setAttribute('class', 'd-flex');
+    container.append(elem, remelem);
+
+    document.querySelector('#display').append(container)
 }
