@@ -19,38 +19,42 @@ const insert = () => {
 }
 
 const appendText = (label = "Default") => {
+
     let elem = document.createElement('input')
-    let remelem = document.createElement('button')
 
     elem.setAttribute('placeholder', label)
     elem.setAttribute('class', 'form-control mt-2 d-flex justify-content-start')
-    remelem.setAttribute('class', 'btn btn-danger delete-btn')
-    remelem.textContent = 'Delete'
-    remelem.addEventListener('click', () => {
-        elem.remove()
-        remelem.remove()
+    elem.addEventListener('click', () => {
+        let remelem = document.createElement('button')
+        remelem.setAttribute('class', 'btn btn-danger delete-btn')
+        remelem.textContent = 'Delete'
+        remelem.addEventListener('click', () => {
+            elem.remove()
+            remelem.remove()
+        })
+        document.querySelector('#display').append(remelem)
     })
 
     document.querySelector('#display').append(elem)
-    document.querySelector('#display').append(remelem)
 }
 const appendTitle = (label = "Default") => {
     let elem = document.createElement('h3')
 
     elem.setAttribute('class', 'text')
     elem.textContent = label
+    elem.addEventListener('click', () => {
+        let remelem = document.createElement('button')
+        remelem.setAttribute('class', 'btn btn-danger delete-btn')
+        remelem.textContent = 'Delete'
+        remelem.addEventListener('click', () => {
+            elem.remove()
+            remelem.remove()
+        })
+        document.querySelector('#display').append(remelem)
+    })
 
     document.querySelector('#display').append(elem)
 
-    let remelem = document.createElement('button')
-
-    remelem.setAttribute('class', 'btn btn-danger delete-btn')
-    remelem.textContent = 'Delete'
-    remelem.addEventListener('click', () => {
-        elem.remove()
-        remelem.remove()
-    })
-    document.querySelector('#display').append(remelem)
 }
 
 const appendButton = (label = "Default") => {
@@ -59,17 +63,18 @@ const appendButton = (label = "Default") => {
  
     elem.setAttribute('class', 'btn btn-primary form-control mt-2')
     elem.textContent = label
+    elem.addEventListener('click', () => {
+        let remelem = document.createElement('button')
+        remelem.setAttribute('class', 'btn btn-danger delete-btn')
+        remelem.textContent = 'Delete'
+        remelem.addEventListener('click', () => {
+            elem.remove()
+            remelem.remove()
+        })
+        document.querySelector('#display').append(remelem)
+    })
 
     document.querySelector('#display').append(elem)
-    let remelem = document.createElement('button')
-
-    remelem.setAttribute('class', 'btn btn-danger delete-btn')
-    remelem.textContent = 'Delete'
-    remelem.addEventListener('click', () => {
-        elem.remove()
-        remelem.remove()
-    })
-    document.querySelector('#display').append(remelem)
 
 }   
 
@@ -87,33 +92,39 @@ const appendCheckbox = (label = "Default") => {
     container.append(elem, elemLabel);
     
     document.querySelector('#display').append(container);
-    let remelem = document.createElement('button')
-
-    remelem.setAttribute('class', 'btn btn-danger delete-btn mt-2')
-    remelem.textContent = 'Delete'
-    remelem.addEventListener('click', () => {
-        elem.remove()
-        remelem.remove()
-        elemLabel.remove()
-        container.remove()
+    elem.addEventListener('click', () => {
+        let remelem = document.createElement('button')
+        remelem.setAttribute('class', 'btn btn-danger delete-btn')
+        remelem.textContent = 'Delete'
+        remelem.addEventListener('click', () => {
+            elem.remove()
+            remelem.remove()
+            elemLabel.remove()
+            container.remove()
+        })
+        document.querySelector('#display').append(remelem)
     })
-    document.querySelector('#display').append(remelem)
   };
 
   const appendSearch = (label = "Search") => {
+    let searchdiv = document.createElement('div')
+    searchdiv.setAttribute('class', 'd-flex row')
+
+    document.querySelector('#display').append(searchdiv)
+
     let elem = document.createElement('input')
-
     elem.setAttribute('type', 'search')
-
-    document.querySelector('#display').append(elem)
-
-    let remelem = document.createElement('button')
-
-    remelem.setAttribute('class', 'btn btn-danger delete-btn')
-    remelem.textContent = 'Delete'
-    remelem.addEventListener('click', () => {
-        elem.remove()
-        remelem.remove()
+    elem.setAttribute('class', 'form-control mt-2 d-flex col-5')
+    elem.addEventListener('click', () => {
+        let remelem = document.createElement('button')
+        remelem.setAttribute('class', 'btn btn-danger delete-btn d-flex justify-content-end')
+        remelem.textContent = 'Delete'
+        remelem.addEventListener('click', () => {
+            elem.remove()
+            remelem.remove()
+        })
+        document.querySelector('#display').append(remelem)
     })
-    document.querySelector('#display').append(remelem)
+    
+    document.querySelector('#display').append(elem)
 }
